@@ -164,7 +164,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: Mulish, Helvetica, sans-serif;
+  font-family: 'Mulish', Helvetica, sans-serif;
   font-weight: 300;
   min-width: 360px;
   color: #000;
@@ -187,6 +187,7 @@ h2 {
   text-align: center;
 }
 button {
+  font-family: 'Mulish';
   transition: 0.3s;
 }
 button:hover {
@@ -262,7 +263,7 @@ header .container {
 }
 
 .btn {
-  padding: 15px 30px;
+  padding: 13px 25px;
   border-radius: 10px;
 }
 .btn:hover {
@@ -371,6 +372,7 @@ header .container {
 }
 .form-select,
 .form-input {
+  font-family: 'TT Norms';
   border: 1px solid rgba(0, 0, 0, 0.6);
   box-sizing: border-box;
   border-radius: 10px;
@@ -381,18 +383,21 @@ header .container {
   color: #010101;
 }
 .form-input:placeholder {
+  font-family: 'TT Norms';
   font-size: 18px;
   line-height: 21px;
   color: #010101;
 }
 .form-input::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
+  font-family: 'TT Norms';
   font-size: 18px;
   line-height: 21px;
   color: #010101;
 }
 .form-input::-moz-placeholder {
   /* Firefox 19+ */
+  font-family: 'TT Norms';
   font-size: 18px;
   line-height: 21px;
   color: #010101;
@@ -460,12 +465,14 @@ header .container {
   border-color: #6087FF;
 }
 .sell-points .result {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 40px;
+  font-family: 'TT Norms';
   line-height: 50px;
   color: #161616;
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   padding-bottom: 15px;
+  white-space: nowrap;
 }
 .sell-points .btn {
   color: #fff;
@@ -616,7 +623,7 @@ header .container {
   left: -40px;
 }
 .step .number_3 {
-  top: -30px;
+  top: -50px;
   left: -20px;
 }
 .step .number_4 {
@@ -663,7 +670,7 @@ header .container {
 .rewards-programs .program-list {
   margin-top: 90px;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: center;
 }
 .rewards-programs .program {
@@ -675,25 +682,24 @@ header .container {
 .rewards-programs .program:last-child {
   padding-right: 0;
 }
-.rewards-programs .program a {
-  font-size: 24px;
-  color: #000;
-  line-height: 30px;
+.rewards-programs .program ul {
+  font-size: 18px;
+  line-height: 26px;
+  color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  padding: 0 10px;
 }
-.rewards-programs .program_capital a {
-  margin-top: 38px;
+.rewards-programs .program ul li {
+  padding: 5px 0;
 }
-.rewards-programs .program_chase a {
-  margin-top: 46px;
+.rewards-programs .program-svg {
+  height: 100px;
 }
-.rewards-programs .program_amex a {
-  margin-top: 41px;
+.rewards-programs .program_chase svg {
+  margin-top: 30px;
 }
-.rewards-programs .program_citi a {
+.rewards-programs .program_amex svg {
   margin-top: 28px;
-}
-.rewards-programs .program_brex a {
-  margin-top: 27px;
 }
 
 
@@ -740,7 +746,7 @@ header .container {
 .faq .panel {
   font-size: 24px;
   line-height: 34px;
-  padding: 30px 0;
+  padding: 20px 0 30px;
   display: none;
 }
 .faq .accordion.active .panel {
@@ -777,6 +783,7 @@ footer .container {
   justify-content: space-between;
 }
 .contact__label {
+  font-family: 'TT Norms';
   font-size: 18px;
   line-height: 34px;
   padding-bottom: 5px;
@@ -906,7 +913,7 @@ footer .container {
     padding: 10px;
   }
   .sell-points .result {
-    font-size: 36px;
+    font-size: 32px;
     border: none;
     padding-bottom: 0;
   }
@@ -924,6 +931,9 @@ footer .container {
   }
   .form-row {
     margin-bottom: 15px;
+  }
+  .form-row:nth-child(2) {
+    align-items: flex-end;
   }
   .sell-points .secure {
     font-size: 10px;
@@ -1085,27 +1095,16 @@ footer .container {
   .rewards-programs .program {
     padding-right: 40px;
   }
+  .rewards-programs .program-svg {
+    height: 75px;
+  }
   .rewards-programs .program svg {
     zoom: 0.8;
   }
-  .rewards-programs .program a {
+  .rewards-programs .program ul {
+    padding: 0 5px;
     font-size: 16px;
-    line-height: 18px;
-  }
-  .rewards-programs .program_capital a {
-    margin-top: 23px;
-  }
-  .rewards-programs .program_chase a {
-    margin-top: 31px;
-  }
-  .rewards-programs .program_amex a {
-    margin-top: 26px;
-  }
-  .rewards-programs .program_citi a {
-    margin-top: 13px;
-  }
-  .rewards-programs .program_brex a {
-    margin-top: 12px;
+    line-height: 20px;
   }
 
 
@@ -1201,7 +1200,7 @@ footer .container {
     justify-content: flex-start;
   }
   .rewards-programs .program {
-    width: 33%;
+    width: 50%;
     padding-right: 0;
     padding-bottom: 60px;
   }
@@ -1456,8 +1455,12 @@ footer .container {
     padding: 80px 0 10px;
     margin-top: 0;
   }
-  .rewards-programs .program {
-    width: 50%;
+  /*.rewards-programs .program {*/
+  /*  width: 50%;*/
+  /*}*/
+  .rewards-programs .program ul {
+    font-size: 14px;
+    line-height: 16px;
   }
 
 

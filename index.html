@@ -67,20 +67,32 @@
                 <label for="program" class="form_left select-wrapper">
                   <select id="program" class="form-select">
 <!--                    <option value="" disabled selected>Select program</option>-->
-                    <option selected>AMEX</option>
-                    <option>CHASE</option>
+                    <option value="amex" selected>AMEX</option>
+                    <option value="citi">CITI</option>
+                    <option value="chase">CHASE</option>
+                    <option value="capitalOne">CapitalOne</option>
                   </select>
                 </label>
-                <input id="amount" class="form_right form-input" type="number" min="0" placeholder="Your amount">
+                <div class="form_right form-input-wrapper">
+                  <input id="amount"
+                         class="form-input"
+                         type="number"
+                         min="50000"
+                         max="9999999"
+                         placeholder="Your amount"
+                         oninput="onInputChange(event)">
+                  <span id="min" class="form-input-validation">Min value is 50 000</span>
+                  <span id="max" class="form-input-validation">Max value is 9 999 999</span>
+                </div>
               </div>
               <div class="form-row">
                 <div class="form_left form_convert">
                   <p class="convert-label">I'd like to convert</p>
                   <div class="convert-row" onclick="selectConvertCount(event)">
-                    <button type="button" class="convert-btn active" value="50">50K</button>
-                    <button type="button" class="convert-btn" value="100">100K</button>
-                    <button type="button" class="convert-btn convert-btn-150" value="150">150K</button>
-                    <button type="button" class="convert-btn" value="200">200K</button>
+                    <button type="button" class="convert-btn active" value="50000">50K</button>
+                    <button type="button" class="convert-btn" value="100000">100K</button>
+                    <button type="button" class="convert-btn convert-btn-150" value="150000">150K</button>
+                    <button type="button" class="convert-btn" value="200000">200K</button>
                   </div>
                 </div>
                 <div class="form_right form_result txt-center">

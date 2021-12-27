@@ -193,6 +193,21 @@ button {
 button:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+input[type=number] {
+  -moz-appearance:textfield; /* Firefox */
+}
+input[type=number]:invalid {
+  border-color: red;
+}
+input[type=number]:invalid:focus {
+  outline-color: red;
+}
 
 
 /* HEADER */
@@ -314,6 +329,7 @@ header .container {
   display: flex;
   align-items: flex-end;
   min-height: calc(100vh - 92px - 50px); /* (100vh - header-height - padding-top) */
+  overflow-x: hidden;
 }
 @media screen and (min-height: 900px) {
   .sell-points .container {
@@ -342,13 +358,13 @@ header .container {
   padding-bottom: 10px;
 }
 .sell-points_right {
-  padding: 146px 80px 42px 115px;
+  padding: 160px 100px 50px 115px;
   background: no-repeat url(images/iphone.png);
   background-size: cover;
 }
 
 .form {
-  width: 380px;
+  width: 420px;
   padding-top: 30px;
 }
 .form-title {
@@ -371,8 +387,12 @@ header .container {
 .form_right {
   width: 47%;
 }
+.form-input-wrapper {
+  position: relative;
+}
 .form-select,
 .form-input {
+  width: 100%;
   font-family: 'TT Norms';
   border: 1px solid rgba(0, 0, 0, 0.6);
   box-sizing: border-box;
@@ -408,6 +428,17 @@ header .container {
   font-size: 18px;
   line-height: 21px;
   color: #010101;
+}
+.form-input-validation {
+  font-size: 12px;
+  display: none;
+  color: red;
+  position: absolute;
+  bottom: -25px;
+  left: 5px;
+}
+.form-input-validation.invalid {
+  display: block;
 }
 .form-select {
   -moz-appearance: none; /* Firefox */
@@ -467,7 +498,7 @@ header .container {
 }
 .sell-points .result {
   font-weight: 400;
-  font-size: 40px;
+  font-size: 36px;
   font-family: 'TT Norms';
   line-height: 50px;
   color: #161616;
@@ -900,7 +931,7 @@ footer .container {
     padding-bottom: 30px;
   }
   .sell-points_right {
-    padding: 90px 60px 25px 70px;
+    padding: 100px 60px 25px 75px;
     margin-right: 30px;
   }
   .sell-points .convert-btn-150 {
@@ -916,7 +947,7 @@ footer .container {
     flex-wrap: nowrap;
   }
   .form {
-    width: 290px;
+    width: 320px;
   }
   .form-title {
     font-size: 24px;
@@ -928,7 +959,7 @@ footer .container {
     padding: 10px;
   }
   .sell-points .result {
-    font-size: 32px;
+    font-size: 28px;
     border: none;
     padding-bottom: 0;
   }
@@ -981,7 +1012,10 @@ footer .container {
     /* IE 10+ */
     font-size: 14px;
   }
-
+  .form-input-validation {
+    font-size: 11px;
+    bottom: -20px;
+  }
 
 
   .how-it-works img {
@@ -1185,14 +1219,17 @@ footer .container {
 }
 
 @media screen and (max-width: 768px) {
-  /*.form {*/
-  /*  width: 250px;*/
-  /*}*/
+  .form {
+    width: 300px;
+  }
   .sell-points_left {
     max-width: 250px;
   }
   .sell-points_right {
     padding: 90px 50px 25px 60px;
+  }
+  .sell-points .result {
+    font-size: 24px;
   }
 
 
@@ -1304,6 +1341,7 @@ footer .container {
     max-width: 100%;
   }
   .form {
+    width: 330px;
     margin: 0 auto;
   }
   .form-row {
@@ -1318,9 +1356,10 @@ footer .container {
   .form_result {
     order: 1;
     padding-bottom: 15px;
+    padding-top: 5px;
   }
   .sell-points .result {
-    font-size: 64px;
+    font-size: 60px;
     line-height: 80px;
   }
   .form-select {
@@ -1515,6 +1554,13 @@ footer .container {
 
 
 @media screen and (max-width: 400px) {
+  .form {
+    width: 300px;
+  }
+  .sell-points .result {
+    font-size: 54px;
+  }
+
   .step-list .separator {
     left: 10px;
   }

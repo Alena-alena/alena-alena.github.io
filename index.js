@@ -17,39 +17,83 @@ const toggleMenu = () => {
 }
 
 /* Set convert value */
-// let convertIndex = 50;
-// let convertResult = 0;
-//
-// const setConvertResult = () => {
-//     document.getElementById('convertResult').innerHTML = convertResult.toString();
-// }
-//
-// window.onload = () => setConvertResult();
+let convertResult = 50000;
+const minPointsCount = 50000;
+const maxPointsCount = 9999999;
+const input = document.getElementById('amount');
+// const program = document.getElementById('program');
+const convertSpan = document.getElementById('convertResult');
 
-// const selectConvertCount = (event) => {
-//     event.stopPropagation();
-//
-//     const convertBtnList = document.getElementsByClassName('convert-btn');
-//
-//     for (let i = 0; i < convertBtnList.length; i++) {
-//         convertBtnList[i].classList.remove('active')
-//     }
-//
-//     convertIndex = event.target.value;
-//
-//     event.target.classList.add('active');
-// }
+window.onload = () => setConvertResult();
 
-// const convert = (event) => {
-//     event.stopPropagation();
-//     event.preventDefault();
-//
-//     const amount = +document.getElementById('amount').value || 1;
-//     const program = document.getElementById('program').value || '';
-//     console.log(convertIndex);
-//     console.log(amount);
-//     console.log(program);
-//
-//     convertResult = amount*convertIndex;
-//     setConvertResult();
-// }
+const setConvertResult = () => {
+    convertSpan.innerHTML = calculate(convertResult);
+    input.value = convertResult;
+}
+
+const selectConvertCount = (event) => {
+    event.stopPropagation();
+    resetButtons();
+    event.target.classList.add('active');
+    convertResult = event.target.value;
+    setConvertResult();
+}
+
+const convert = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+}
+
+const resetButtons = () => {
+    let convertBtnList = document.getElementsByClassName('convert-btn');
+
+    for (let i = 0; i < convertBtnList.length; i++) {
+        convertBtnList[i].classList.remove('active');
+    }
+}
+
+const calculate = (points) => {
+    let pointsToConvert;
+
+    if (!points) {
+        return '0';
+    }
+
+    if (points < minPointsCount) {
+        pointsToConvert = minPointsCount;
+    } else if (points > maxPointsCount) {
+        pointsToConvert = maxPointsCount;
+    } else {
+        pointsToConvert = points;
+    }
+
+    const result = (Math.trunc(pointsToConvert / 1000) * 1000 * 0.01).toFixed(2);
+
+    return result.toString();
+}
+
+const onInputChange = (event) => {
+    validateInput(event);
+    resetButtons();
+    convertSpan.innerHTML = calculate(event.target.value) || '0';
+}
+
+const validateInput = (event) => {
+    let validations = document.getElementsByClassName('form-input-validation');
+
+    for (let i = 0; i < validations.length; i++) {
+        validations[i].classList.remove('invalid');
+    }
+
+    if (!event.target.value) {
+        return;
+    }
+
+    if (event.target.value < minPointsCount) {
+        document.getElementById('min').classList.add('invalid');
+    }
+
+    if (event.target.value > maxPointsCount) {
+        document.getElementById('max').classList.add('invalid');
+    }
+}

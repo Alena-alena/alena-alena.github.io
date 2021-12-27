@@ -34,8 +34,11 @@ const setConvertResult = () => {
 const selectConvertCount = (event) => {
     event.stopPropagation();
     resetButtons();
+    resetInputValidation();
+
     event.target.classList.add('active');
     convertResult = event.target.value;
+
     setConvertResult();
 }
 
@@ -79,11 +82,7 @@ const onInputChange = (event) => {
 }
 
 const validateInput = (event) => {
-    let validations = document.getElementsByClassName('form-input-validation');
-
-    for (let i = 0; i < validations.length; i++) {
-        validations[i].classList.remove('invalid');
-    }
+    resetInputValidation();
 
     if (!event.target.value) {
         return;
@@ -95,5 +94,13 @@ const validateInput = (event) => {
 
     if (event.target.value > maxPointsCount) {
         document.getElementById('max').classList.add('invalid');
+    }
+}
+
+const resetInputValidation = () => {
+    let validations = document.getElementsByClassName('form-input-validation');
+
+    for (let i = 0; i < validations.length; i++) {
+        validations[i].classList.remove('invalid');
     }
 }

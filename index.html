@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Cashforpoint</title>
+    <title>Cashforpoints</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="./styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
@@ -10,6 +11,12 @@
     <header>
       <div class="container">
         <div class="header_left">
+          <svg class="logo-svg" width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="29" height="29" rx="7" fill="black"/>
+            <path d="M17.0337 6.98828C17.8062 6.98828 18.541 7.09082 19.2383 7.2959C19.9355 7.49414 20.5063 7.73682 20.9507 8.02393C21.4019 8.31104 21.7983 8.59814 22.1401 8.88525C22.4888 9.17236 22.7383 9.41504 22.8887 9.61328L23.1245 9.9209L21.125 11.9204C21.084 11.8657 21.0259 11.7905 20.9507 11.6948C20.8823 11.5923 20.7217 11.4214 20.4688 11.1821C20.2227 10.9429 19.9526 10.7344 19.6587 10.5566C19.3647 10.3721 18.9785 10.2046 18.5 10.0542C18.0215 9.89697 17.5327 9.81836 17.0337 9.81836C15.6597 9.81836 14.5112 10.2798 13.5884 11.2026C12.6655 12.1255 12.2041 13.2739 12.2041 14.6479C12.2041 16.022 12.6655 17.1704 13.5884 18.0933C14.5112 19.0161 15.6597 19.4775 17.0337 19.4775C17.5669 19.4775 18.0762 19.4058 18.5615 19.2622C19.0537 19.1118 19.4604 18.9375 19.7817 18.7393C20.103 18.5342 20.3867 18.3291 20.6328 18.124C20.8789 17.9189 21.0566 17.7412 21.166 17.5908L21.3301 17.3755L23.2271 19.375C23.1724 19.457 23.0869 19.5664 22.9707 19.7031C22.8613 19.833 22.6118 20.0688 22.2222 20.4106C21.8394 20.7456 21.4258 21.043 20.9814 21.3027C20.5439 21.5557 19.9663 21.7881 19.2485 22C18.5376 22.2119 17.7993 22.3179 17.0337 22.3179C14.7915 22.3179 12.8979 21.5693 11.353 20.0723C9.81494 18.5684 9.0459 16.7603 9.0459 14.6479C9.0459 12.5356 9.81494 10.731 11.353 9.23389C12.8979 7.73682 14.7915 6.98828 17.0337 6.98828Z" fill="white"/>
+            <path d="M5.43555 21.7334C5.10742 21.4189 4.94336 21.0532 4.94336 20.6362C4.94336 20.2124 5.10742 19.8433 5.43555 19.5288C5.76367 19.2144 6.16016 19.0571 6.625 19.0571C7.08984 19.0571 7.48633 19.2144 7.81445 19.5288C8.14258 19.8433 8.30664 20.2124 8.30664 20.6362C8.30664 21.0532 8.14258 21.4189 7.81445 21.7334C7.48633 22.0479 7.08984 22.2051 6.625 22.2051C6.16016 22.2051 5.76367 22.0479 5.43555 21.7334Z" fill="white"/>
+          </svg>
+
           <p class="logo">.Cashforpoints</p>
 
           <ul id="navigation" class="navigation" onclick="toggleMenu()">
@@ -21,8 +28,8 @@
         </div>
 
         <div class="header_right">
-          <button class="btn btn_login">Login</button>
-          <button class="btn btn_signup">Sign up</button>
+          <button class="btn btn_login" onclick="goToMainApp()">Login</button>
+          <button class="btn btn_signup" onclick="goToMainApp()">Sign up</button>
           <div id="burger-menu" class="burger-menu" onclick="toggleMenu()"><div></div></div>
         </div>
       </div>
@@ -66,11 +73,22 @@
               <div class="form-row">
                 <label for="program" class="form_left select-wrapper">
                   <select id="program" class="form-select">
-<!--                    <option value="" disabled selected>Select program</option>-->
-                    <option value="amex" selected>AMEX</option>
-                    <option value="citi">CITI</option>
-                    <option value="chase">CHASE</option>
-                    <option value="capitalOne">CapitalOne</option>
+                    <option value="amex" disabled>AMEX</option>
+                    <option value="amex" selected>AMEX Gold</option>
+                    <option value="amex">AMEX Platinum</option>
+                    <option value="amex">AMEX Everyday Preferred card</option>
+                    <option value="amex">AMEX Green card</option>
+                    <option value="chase" disabled>CHASE</option>
+                    <option value="chase">CHASE Sapphire reserve</option>
+                    <option value="chase">CHASE Sapphire preferred</option>
+                    <option value="chase">CHASE Ink preferred</option>
+                    <option value="citi" disabled>CITI</option>
+                    <option value="citi">CITI ThankYou Preferred</option>
+                    <option value="citi">CITI Premier</option>
+                    <option value="citi">CITI Prestige</option>
+                    <option value="capitalOne" disabled>CapitalOne</option>
+                    <option value="capitalOne">CapitalOne Venture</option>
+                    <option value="capitalOne">CapitalOne Venture One</option>
                   </select>
                 </label>
                 <div class="form_right form-input-wrapper">
@@ -100,7 +118,7 @@
                 </div>
               </div>
               <div class="form-row">
-                <button class="form_left btn" onclick="convert(event)">Convert Now</button>
+                <button type="button" class="form_left btn" onclick="goToMainApp()">Convert Now</button>
                 <p class="form_right secure txt-center">
                   <svg class="secure-icon" width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6 0.5C3.93225 0.5 2.25 2.18225 2.25 4.25V6.5H1.5C1.10218 6.5 0.720644 6.65804 0.43934 6.93934C0.158035 7.22064 0 7.60218 0 8V14C0 14.3978 0.158035 14.7794 0.43934 15.0607C0.720644 15.342 1.10218 15.5 1.5 15.5H10.5C10.8978 15.5 11.2794 15.342 11.5607 15.0607C11.842 14.7794 12 14.3978 12 14V8C12 7.60218 11.842 7.22064 11.5607 6.93934C11.2794 6.65804 10.8978 6.5 10.5 6.5H9.75V4.25C9.75 2.18225 8.06775 0.5 6 0.5ZM3.75 4.25C3.75 3.0095 4.7595 2 6 2C7.2405 2 8.25 3.0095 8.25 4.25V6.5H3.75V4.25ZM6.75 12.2922V14H5.25V12.2922C4.98779 12.1421 4.77724 11.916 4.64612 11.6438C4.515 11.3715 4.46946 11.066 4.51551 10.7673C4.56156 10.4687 4.69704 10.191 4.90407 9.97095C5.11111 9.75086 5.37999 9.59869 5.67525 9.5345C5.89456 9.48601 6.12196 9.48736 6.34068 9.53846C6.5594 9.58956 6.76386 9.68911 6.93899 9.82975C7.11411 9.9704 7.25543 10.1486 7.35253 10.3511C7.44963 10.5536 7.50002 10.7754 7.5 11C7.49957 11.2623 7.43002 11.5199 7.29835 11.7467C7.16668 11.9736 6.97754 12.1618 6.75 12.2922Z" fill="black"/>
@@ -133,12 +151,12 @@
         <div class="container">
           <h2 class="txt-center">4 Easy Steps</h2>
           <div class="step-list">
-            <svg class="separator" width="11" height="901" viewBox="0 0 11 901" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <line x1="5.5" y1="6" x2="5.50004" y2="890" stroke="#6087FF" stroke-opacity="0.5"/>
+            <svg class="separator" width="11" height="1043" viewBox="0 0 11 1043" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="5.5" y1="6" x2="5.50005" y2="1037" stroke="#6087FF" stroke-opacity="0.5"/>
               <circle cx="5.5" cy="5.5" r="5.5" fill="#6087FF"/>
               <circle cx="5.5" cy="285.5" r="5.5" fill="#6087FF"/>
               <circle cx="5.5" cy="558.5" r="5.5" fill="#6087FF"/>
-              <circle cx="5.5" cy="895.5" r="5.5" fill="#6087FF"/>
+              <circle cx="5.5" cy="1037.5" r="5.5" fill="#6087FF"/>
             </svg>
 
             <svg class="separator-small" width="12" height="655" viewBox="0 0 12 655" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -169,8 +187,8 @@
 
             <div class="step step_3">
               <p class="number number_3">3</p>
-              <p class="title">Next Steps</p>
-              <p class="text">You'll get easy-to-follow instructions via email and your account</p>
+              <p class="title">Follow the instructions</p>
+              <p class="text">You'll get easy-to-follow instructions via email and your account. If your card is not listed in the drop down list then it is not eligible for points transfer</p>
               <img src="./images/instruction.png" alt="Follow the simple instructions">
             </div>
 
@@ -200,8 +218,8 @@
               <ul>
                 <li>Gold</li>
                 <li>Platinum</li>
-                <li>Everyday Preferred card</li>
-                <li>Green card</li>
+                <li>Everyday Preferred</li>
+                <li>Green</li>
               </ul>
             </div>
 

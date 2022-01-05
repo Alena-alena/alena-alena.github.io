@@ -21,7 +21,7 @@ let convertResult = 50000;
 const minPointsCount = 50000;
 const maxPointsCount = 9999999;
 const input = document.getElementById('amount');
-// const program = document.getElementById('program');
+const program = document.getElementById('program');
 const convertSpan = document.getElementById('convertResult');
 
 window.onload = () => setConvertResult();
@@ -42,10 +42,10 @@ const selectConvertCount = (event) => {
     setConvertResult();
 }
 
-const convert = (event) => {
-    event.stopPropagation();
-    event.preventDefault();
-}
+// const convert = (event) => {
+//     event.stopPropagation();
+//     event.preventDefault();
+// }
 
 const resetButtons = () => {
     let convertBtnList = document.getElementsByClassName('convert-btn');
@@ -103,4 +103,11 @@ const resetInputValidation = () => {
     for (let i = 0; i < validations.length; i++) {
         validations[i].classList.remove('invalid');
     }
+}
+
+/* Redirect to main Angular App */
+const goToMainApp = () => {
+    const params = '?program=' + program.value + '&points=' + input.value;
+
+    window.location = 'http://my.cashforpoints.com/' + params;
 }

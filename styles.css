@@ -242,6 +242,7 @@ header .container {
   font-weight: bold;
   font-size: 24px;
   line-height: 28px;
+  margin-left: 15px;
 }
 .navigation {
   display: flex;
@@ -412,6 +413,9 @@ header .container {
   font-size: 18px;
   line-height: 21px;
   color: #010101;
+}
+.form-select {
+  padding: 16px 40px 16px 16px;
 }
 .form-input:placeholder {
   font-family: 'TT Norms';
@@ -649,7 +653,7 @@ header .container {
 }
 .step_4 {
   position: relative;
-  top: -320px;
+  top: -300px;
 }
 .step .number {
   position: absolute;
@@ -719,17 +723,21 @@ header .container {
 .rewards-programs .program-list {
   margin-top: 90px;
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: center;
 }
 .rewards-programs .program {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-right: 100px;
+  margin-right: 20px;
+  width: 270px;
+  padding: 40px 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 .rewards-programs .program:last-child {
-  padding-right: 0;
+  margin-right: 0;
 }
 .rewards-programs .program ul {
   font-size: 18px;
@@ -739,6 +747,7 @@ header .container {
   padding: 0 10px;
 }
 .rewards-programs .program ul li {
+  color: #6087FF;
   padding: 5px 0;
 }
 .rewards-programs .program-svg {
@@ -899,10 +908,6 @@ footer .container {
   .step-list .separator {
     top: 100px;
   }
-
-  .rewards-programs .program {
-    padding-right: 60px;
-  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -948,7 +953,7 @@ footer .container {
     display: none;
   }
   .sell-points .container {
-    min-height: auto;
+    min-height: calc(100vh - 72px); /* (100vh - header-height) */
     padding-top: 0;
     display: flex;
     justify-content: space-between;
@@ -1062,7 +1067,7 @@ footer .container {
     padding-top: 70px;
   }
   .step .title {
-    font-size: 36px;
+    font-size: 35px;
     line-height: 45px;
     padding-bottom: 10px;
   }
@@ -1152,7 +1157,7 @@ footer .container {
     margin-top: 50px;
   }
   .rewards-programs .program {
-    padding-right: 40px;
+    padding: 30px 0;
   }
   .rewards-programs .program-svg {
     height: 75px;
@@ -1214,6 +1219,11 @@ footer .container {
     padding-top: 30px;
   }
 }
+@media screen and (min-height: 550px) and (max-width: 1024px) {
+  .sell-points .container {
+    min-height: auto;
+  }
+}
 
 @media screen and (max-width: 868px) {
   .sell-points_right {
@@ -1226,9 +1236,26 @@ footer .container {
   .step_2 .step, .step_4 .step {
     margin-right: 30px;
   }
+
+  .rewards-programs .program-list {
+    flex-wrap: wrap;
+  }
+  .rewards-programs .program {
+    margin: 10px;
+  }
+  .rewards-programs .program:last-child {
+    margin-right: 10px;
+  }
 }
 
 @media screen and (max-width: 768px) {
+  .logo-svg {
+    display: none;
+  }
+  .logo {
+    margin-left: 0;
+  }
+
   .form {
     width: 300px;
   }
@@ -1254,17 +1281,6 @@ footer .container {
 
   .step_2 .step, .step_4 .step {
     margin-right: 0;
-  }
-
-
-  .rewards-programs .program-list {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
-  .rewards-programs .program {
-    width: 50%;
-    padding-right: 0;
-    padding-bottom: 60px;
   }
 }
 
@@ -1308,12 +1324,13 @@ footer .container {
   .btn {
     font-size: 12px;
     line-height: 15px;
-    padding: 4px 10px;
+    padding: 6px 12px;
     border-radius: 5px;
   }
 
 
   .sell-points .container {
+    min-height: calc(100vh - 59px - 120px); /* (100vh - header-height - padding-bottom) */
     flex-wrap: wrap;
     position: relative;
     padding-bottom: 120px;
@@ -1326,13 +1343,19 @@ footer .container {
   .sell-points_left {
     max-width: 100%;
     width: 100%;
+    padding-bottom: 20px;
   }
   .sell-points .title {
-    font-size: 48px;
-    line-height: 48px;
-    padding-top: 70px;
+    font-size: 36px;
+    line-height: 36px;
+    padding-top: 60px;
+    padding-bottom: 0;
     text-align: center;
     margin: 0 auto;
+    width: auto;
+  }
+  .sell-points .form-title {
+    font-size: 21px;
   }
   .sell-points .sub-title {
     display: none;
@@ -1430,11 +1453,13 @@ footer .container {
     width: 470px;
     height: 470px;
     z-index: 1;
+    top: 300px;
+    left: -130px;
   }
   .how-it-works .container {
     flex-wrap: wrap;
     position: relative;
-    padding-top: 45px;
+    padding-top: 60px;
     padding-bottom: 80px;
   }
   .how-it-works_left {
@@ -1448,31 +1473,18 @@ footer .container {
   .how-it-works img {
     width: 100%;
     max-width: 370px;
-    position: absolute;
-    top: 125px;
     z-index: 2;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .how-it-works .video {
-    margin: 0;
-    padding-top: 400px;
-    position: relative;
-    z-index: 3;
   }
   .how-it-works .circle {
-    background-color: #000;
     width: 130px;
     height: 130px;
+    margin-bottom: 70px;
   }
   .how-it-works .circle p {
     font-size: 18px;
-    color: #fff;
   }
   .how-it-works .video .label {
-    font-size: 18px;
-    line-height: 23px;
-    margin-top: 15px;
+    display: none;
   }
 
 
@@ -1493,7 +1505,8 @@ footer .container {
     left: 20px;
   }
   .step_2 {
-    margin-top: 150px;
+    margin-top: 185px;
+    padding-bottom: 100px;
   }
   .step_2, .step_4 {
     justify-content: flex-start;
@@ -1503,28 +1516,52 @@ footer .container {
     margin-left: 60px;
   }
   .step_3 {
-    top: 55px;
-  }
-  .step_3 img {
-    position: absolute;
-    right: -115px;
-    margin-top: -15px;
+    top: 65px;
   }
   .step_4 {
-    top: 155px;
+    top: 230px;
+    padding-bottom: 200px;
+  }
+  .step_1 img {
+    transform: none;
+    bottom: -150px;
+  }
+  .step_2 img,
+  .step_3 img {
+    position: absolute;
+    right: 28px;
+  }
+  .step_3 img {
+    width: 180px;
+  }
+  .step_4 img {
+    position: absolute;
+    right: 25px;
+  }
+  .step .number_4 {
+    top: 0;
   }
 
 
   .rewards-programs {
-    padding: 80px 0 10px;
+    padding: 80px 0 60px;
     margin-top: 0;
   }
-  /*.rewards-programs .program {*/
-  /*  width: 50%;*/
-  /*}*/
+  .rewards-programs .program {
+    width: 45%;
+    max-width: 205px;
+    padding: 20px 0;
+    margin: 5px;
+  }
   .rewards-programs .program ul {
     font-size: 14px;
     line-height: 16px;
+  }
+  .rewards-programs .program-svg {
+    height: 60px;
+  }
+  .rewards-programs .program svg {
+    zoom: 0.7;
   }
 
 
@@ -1561,6 +1598,11 @@ footer .container {
     padding-top: 45px;
   }
 }
+@media screen and (min-height: 850px) and (max-width: 670px) {
+  .sell-points .container {
+    min-height: auto;
+  }
+}
 
 
 @media screen and (max-width: 400px) {
@@ -1569,6 +1611,10 @@ footer .container {
   }
   .sell-points .result {
     font-size: 54px;
+  }
+
+  .how-it-works .border-circle {
+    left: -200px;
   }
 
   .step-list .separator {
